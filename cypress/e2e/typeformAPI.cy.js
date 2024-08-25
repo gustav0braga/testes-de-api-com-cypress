@@ -1,7 +1,7 @@
 describe("API Tests", () => {
-  const exampleData = require("../fixtures/example.json");
+  const configData = require("../fixtures/config.json");
   const sampleForm = require("../fixtures/sampleForm.json");
-  const authorization = `Bearer ${exampleData.ACCESS_TOKEN}`;
+  const authorization = `Bearer ${configData.ACCESS_TOKEN}`;
   const API_URL = Cypress.env("API_BASE_URL");
 
 
@@ -13,8 +13,8 @@ describe("API Tests", () => {
     }).should(({ status, body }) => {
       const { alias, email, language } = body;        //diariamente a API typeForm muda o nome de {alias > name} e vice e versa
       expect(status).to.eq(200);
-      expect(alias).to.eq(exampleData.userAlias);     //verifique o yielded.body do console para validar em caso de erro
-      expect(email).to.eq(exampleData.username);
+      expect(alias).to.eq(configData.userAlias);     //verifique o yielded.body do console para validar em caso de erro
+      expect(email).to.eq(configData.username);
       expect(language).to.eq("en");
     });
   });
@@ -22,7 +22,7 @@ describe("API Tests", () => {
   it("retrieves form responses", () => {
     cy.request({
       method: "GET",
-      url: `${API_URL}forms/${exampleData.formId}/responses`,
+      url: `${API_URL}forms/${configData.formId}/responses`,
       headers: { authorization },
     }).should(({ status, body }) => {
       expect(status).to.eq(200);
