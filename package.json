@@ -1,14 +1,19 @@
 {
-  "name": "api-cypress",
+  "name": "testes-de-api-com-cypress",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cy:open": "cypress open",
+    "test": "cypress run"
   },
-  "keywords": [],
+  "keywords": [
+    "Typeform",
+    "Cypress",
+    "API-Testing"
+  ],
   "author": "Gustavo Braga",
   "license": "ISC",
-  "description": "",
+  "description": "Sample project to experiment with Typeform's API.",
   "devDependencies": {
     "cypress": "^13.10.0"
   }
